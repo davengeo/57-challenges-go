@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-fmt.Printf("hello, world\n")
+
+	fmt.Println("What's your name?")
+	var input string
+	fmt.Scanln(&input)
+	fmt.Println("Hello, " + input)
 }
