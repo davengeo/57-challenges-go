@@ -4,10 +4,13 @@ import (
 	"fmt"
 )
 
-func main() {
+func greeting(name string) {
+	fmt.Println("Hello, " + name)
+}
 
-	fmt.Println("What's your name?")
+func main() {
+	fmt.Print("What's your name?")
 	var input string
 	fmt.Scanln(&input)
-	fmt.Println("Hello, " + input)
+	greeting(input)
 }
