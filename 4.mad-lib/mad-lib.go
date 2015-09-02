@@ -6,10 +6,6 @@ import (
 	"os"
 )
 
-type Part struct{
-	name string
-	content string
-}
 
 func read_line() string {
 	reader := bufio.NewReader(os.Stdin)
