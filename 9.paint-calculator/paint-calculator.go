@@ -10,7 +10,7 @@ func round_up(length int, width int) int {
 	const gallon2feet float64 = 350
 
 	var result float64
-	result = float64(length)*float64(width)/ gallon2feet
+	result = float64(length*width)/ gallon2feet
 	if result > float64(int(result)) {
 		result++
 	}
