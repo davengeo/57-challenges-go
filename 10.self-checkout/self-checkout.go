@@ -5,25 +5,33 @@ import (
 	"fmt"
 )
 
+type basket_item struct {
+	name string
+	price float64
+	amount int
+}
+
 func main() {
 
 	const tax_rate float64 = 0.055
 
-	products:=[...]string{"1","2","3"}
-	var prices [len(products)]int
-	var amounts [len(products)]int
+	var basket [3]basket_item
 
-	for index, value := range products {
-		prices[index]=shared.Get_number_with_question("Price of item " + value + "?")
-		amounts[index]=shared.Get_number_with_question("Amount of item " + value + "?")
+	basket[0].name="1"
+	basket[1].name="2"
+	basket[2].name="3"
+
+	for index, value := range basket {
+		basket[index].price=shared.Get_float_with_question("Price of item " + value.name + "?")
+		basket[index].amount=shared.Get_number_with_question("Amount of item " + value.name + "?")
 	}
 
-	total_price:=0
+	total_price:=0.0
 
-	for index,_ := range products {
-		total_price+=prices[index]*amounts[index]
+	for _, value := range basket {
+		total_price+=value.price*float64(value.amount)
 	}
 
-	fmt.Printf("Subtotal: %f\n", float64(total_price)*tax_rate)
-	fmt.Printf("Taxes: %f\n", float64(total_price)*(1.0+tax_rate))
+	fmt.Printf("Subtotal: %f\n", total_price*tax_rate)
+	fmt.Printf("Taxes: %f\n", total_price*(1.0 + tax_rate))
 }
